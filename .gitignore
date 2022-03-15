@@ -1,0 +1,9 @@
+﻿LifelessUnity/Library
+LifelessUnity/Logs
+LifelessUnity/Temp
+LifelessUnity/obj
+LifelessUnity/UserSettings
+LifelessUnity/.vsconfig
+*.csproj
+*.sln
+LifelessUnity/Assets/Ink/Demos
