@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
+using Ink;
 
 public class InkReader : MonoBehaviour
 {
@@ -24,6 +25,14 @@ public class InkReader : MonoBehaviour
         {
             Story.Continue();
         }
+
+        Story.onError += (errorMessage, errorType) =>
+        {
+            if (errorType == ErrorType.Warning)
+                Debug.LogWarning(errorMessage);
+            else
+                Debug.LogError(errorMessage);
+        };
     }
 
     // Update is called once per frame
@@ -49,6 +58,12 @@ public class InkReader : MonoBehaviour
         }
     }
 
+    public void SceneDialogue(string setting)
+    {
+        Story.ChoosePathString(setting);
+        PrintNextLine();
+    }
+
     public void Interact(string setting, string itemName)
     {
         Story.ChoosePathString($"{setting}.{itemName}");
@@ -59,7 +74,9 @@ public class InkReader : MonoBehaviour
     {
         if (Story.canContinue)
         {
-            DialoguePrinter.Instance.PrintLine(Story.Continue());
+            string line = Story.Continue();
+            DialoguePrinter.Instance.PrintLine(line, addToCurrent: Story.currentTags.Contains("add"));
+            DialoguePrinter.Instance.SetPoetryState(Story.currentTags.Contains("poetry"));
             return true;
         }
         return false;

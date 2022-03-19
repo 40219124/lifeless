@@ -157,8 +157,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 15995587}
-  - {fileID: 574011154}
   - {fileID: 2037545443}
+  - {fileID: 574011154}
   - {fileID: 1232772437}
   m_Father: {fileID: 1828139815}
   m_RootOrder: 0
@@ -756,6 +756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1499697609}
+  - component: {fileID: 1499697610}
   - component: {fileID: 1499697608}
   - component: {fileID: 1499697607}
   - component: {fileID: 1499697606}
@@ -848,6 +849,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1499697610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499697605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e2945b1517b244a907bff651dc67a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1815277394
 GameObject:
   m_ObjectHideFlags: 0

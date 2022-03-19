@@ -19,6 +19,7 @@ public class DialoguePrinter : MonoBehaviour
 
     public static bool IsShowing { get; private set; }
     public static bool IsPrinting { get; private set; }
+    public static bool IsPoetry { get; private set; }
     public float TimePerChar { get; private set; }
 
     Coroutine PrintingRoutine;
@@ -36,7 +37,7 @@ public class DialoguePrinter : MonoBehaviour
         Reset();
     }
 
-    public void PrintLine(string line, string name = "")
+    public void PrintLine(string line, string name = "", bool addToCurrent = false)
     {
         if (PrintingRoutine != null)
         {
@@ -48,15 +49,26 @@ public class DialoguePrinter : MonoBehaviour
         NameObj.SetActive(!name.Equals(""));
         NameText.text = name;
 
-        PrintingRoutine = StartCoroutine(PrintLineRoutine(line));
+        PrintingRoutine = StartCoroutine(PrintLineRoutine(line, addToCurrent));
     }
 
-    private IEnumerator PrintLineRoutine(string line)
+    private IEnumerator PrintLineRoutine(string line, bool addToCurrent = false)
     {
         IsPrinting = true;
 
+        string printed = addToCurrent ? MainText.text : "";
         float elapsed = 0f;
-        string printed = "";
+        if (addToCurrent)
+        {
+            string spacer = printed[printed.Length - 1] switch
+            {
+                ' ' => "",
+                '\n' => "",
+                '.' => "  ",
+                _ => " "
+            };
+            line = $"{printed}{spacer}{line}";
+        }
 
         while (printed.Length != line.Length)
         {
@@ -71,6 +83,7 @@ public class DialoguePrinter : MonoBehaviour
             yield return null;
         }
         IsPrinting = false;
+        PrintingRoutine = null;
     }
 
     public void JumpToEnd()
@@ -113,5 +126,23 @@ public class DialoguePrinter : MonoBehaviour
     public static bool AllowsOtherInteractions()
     {
         return !(IsShowing || Time.time - TimeHidden < 0.3f);
+    }
+
+    public void SetPoetryState(bool state)
+    {
+        if (state != IsPoetry)
+        {
+            IsPoetry = state;
+            FontStyles fontStyle = MainText.fontStyle;
+            if (IsPoetry)
+            {
+                fontStyle |= FontStyles.Italic;
+            }
+            else
+            {
+                fontStyle &= ~FontStyles.Italic;
+            }
+            MainText.fontStyle = fontStyle;
+        }
     }
 }
