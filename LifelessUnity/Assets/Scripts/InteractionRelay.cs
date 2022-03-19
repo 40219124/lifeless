@@ -7,10 +7,6 @@ public class InteractionRelay : MonoBehaviour
 {
     public string Setting = "";
 
-    private void Start()
-    {
-    }
-
     public void PlaySceneDialogue()
     {
         InkReader.Instance.SceneDialogue(Setting);

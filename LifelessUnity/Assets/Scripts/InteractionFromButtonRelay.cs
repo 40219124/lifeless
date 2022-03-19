@@ -8,6 +8,9 @@ public class InteractionFromButtonRelay : MonoBehaviour
     InteractionRelay Relay;
     [SerializeField]
     Animator Anim;
+
+    Coroutine SparkRoutineRef;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +22,7 @@ public class InteractionFromButtonRelay : MonoBehaviour
             newColour.a = 0;
             image.color = newColour;
         }
-        StartCoroutine(SparkleRoutine());
+        SparkRoutineRef = StartCoroutine(SparkleRoutine());
     }
 
     private float SparkleDelay => Random.Range(10f, 15f);
@@ -48,6 +51,8 @@ public class InteractionFromButtonRelay : MonoBehaviour
         if (DialoguePrinter.AllowsOtherInteractions())
         {
             Relay.RelayToReader(name);
+            StopCoroutine(SparkRoutineRef);
+            SparkRoutineRef = null;
         }
     }
 }
