@@ -6,6 +6,8 @@ using Ink;
 
 public class InkReader : MonoBehaviour
 {
+    public readonly List<string> CharacterNames = new List<string> { "Charlie", "Barista", "Driver", "Colleague", "Worker" };
+
     public static InkReader Instance { get; private set; }
     private void Awake()
     {
@@ -75,10 +77,26 @@ public class InkReader : MonoBehaviour
         if (Story.canContinue)
         {
             string line = Story.Continue();
-            DialoguePrinter.Instance.PrintLine(line, addToCurrent: Story.currentTags.Contains("add"));
+            string speaker = "";
+            foreach (string name in CharacterNames)
+            {
+                if (line.StartsWith(name))
+                {
+                    if(line[name.Length] == ':')
+                    speaker = name;
+                    line = line.Substring(name.Length + 1);
+                    line.TrimStart(' ');
+                }
+            }
+            DialoguePrinter.Instance.PrintLine(line, name: speaker, addToCurrent: Story.currentTags.Contains("add"));
             DialoguePrinter.Instance.SetPoetryState(Story.currentTags.Contains("poetry"));
             return true;
         }
         return false;
+    }
+
+    public void SetDay(int day)
+    {
+        Story.variablesState["DayNumber"] = day;
     }
 }
