@@ -9,13 +9,6 @@ public class InteractionRelay : MonoBehaviour
 
     private void Start()
     {
-        foreach(InteractionFromButtonRelay br in GetComponentsInChildren<InteractionFromButtonRelay>())
-        {
-            Image image = br.GetComponent<Image>();
-            Color newColour = image.color;
-            newColour.a = 0;
-            image.color = newColour;
-        }
     }
 
     public void PlaySceneDialogue()
