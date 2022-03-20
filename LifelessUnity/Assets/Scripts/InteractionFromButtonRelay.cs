@@ -26,6 +26,7 @@ public class InteractionFromButtonRelay : MonoBehaviour
 
     private void OnEnable()
     {
+        GlobalKnowledge.OnAdvanceDay += NewDaySparkle;
         if (SparkRoutineRef == null)
         {
             SparkRoutineRef = StartCoroutine(SparkleRoutine());
@@ -33,11 +34,21 @@ public class InteractionFromButtonRelay : MonoBehaviour
     }
     private void OnDisable()
     {
+        GlobalKnowledge.OnAdvanceDay -= NewDaySparkle;
         if (SparkRoutineRef != null)
         {
             StopCoroutine(SparkRoutineRef);
             SparkRoutineRef = null;
         }
+    }
+
+    private void NewDaySparkle(eDay _)
+    {
+        if(SparkRoutineRef != null)
+        {
+            StopCoroutine(SparkRoutineRef);
+        }
+        SparkRoutineRef = StartCoroutine(SparkleRoutine());
     }
 
     private float SparkleDelay => Random.Range(10f, 15f);

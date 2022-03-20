@@ -148,6 +148,7 @@ Alright, let's see...
             I'll get it all done, and I'll do it all myself.
             It's pretty clear no one else is capable of helping me with anything. #add
             I could do everything much better on my own.  #nextDay      // Ooh!! Is that a doom flag? :O It just might be!!
+            ~ Morning = true
         }
     -   2: Exit, pursued by time.       #goto:Bus
     -   3: I can do this.               #goto:Bus
