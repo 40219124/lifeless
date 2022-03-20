@@ -46,13 +46,22 @@ public class SceneDirector : MonoBehaviour
     public void DirectLocationChange(eLocation loc)
     {
         TransLocation = loc;
+        DialoguePrinter.Instance.HideDialogue();
         StartCoroutine(FadeInToNarration());
     }
 
     public void DirectDayChange(eDay day)
     {
         TransDay = day;
+        DialoguePrinter.Instance.HideDialogue();
         StartCoroutine(DayChangeRoutine());
+    }
+
+    public void DirectTimeSkip()
+    {
+        IsDirecting = true;
+        DialoguePrinter.Instance.HideDialogue();
+        Anim.SetTrigger("TimeSkip");
     }
 
 
@@ -115,6 +124,12 @@ public class SceneDirector : MonoBehaviour
         {
             StartCoroutine(WaitOnThanks());
         }
+    }
+
+    private void AnimTimeSkipEnd()
+    {
+        InkReader.Instance.PrintNextLine();
+        CleanUp();
     }
 
     private void CleanUp()

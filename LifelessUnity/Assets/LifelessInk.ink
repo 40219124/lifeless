@@ -254,15 +254,13 @@ Alright, let's see...
     -   1:
         { Morning:
             In the office at last.
-            Quick stop in the cubicle to deposit my things, then it's off to the morning meeting.
-            [...]
+            Quick stop in the cubicle to deposit my things, then it's off to the morning meeting.   #timeSkip
             As expected, everyone is looking most dreary today.
             Except...
             It's unusual to see {Colleague} looking that chipper - especially on a Monday morning.
             I guess he's finally going to be done with that big account of his.
             The completion of quality work: truly a marvelous feeling.
-            Regardless, I'm sure he'll stop by to waste my time, now that his is suddenly so free.
-            [...]
+            Regardless, I'm sure he'll stop by to waste my time, now that his is suddenly so free.  #timeSkip
             Upon this strike, this final press,     #poetry
             To lunch I go; I must confess.          #poetry #add #goto:CoffeeShop
         -   else:

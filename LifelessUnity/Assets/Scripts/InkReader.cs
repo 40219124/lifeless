@@ -55,7 +55,14 @@ public class InkReader : MonoBehaviour
                 }
                 else if (Story.canContinue)
                 {
-                    PrintNextLine();
+                    if (Story.currentTags.Contains("timeSkip"))
+                    {
+                        SceneDirector.Instance.DirectTimeSkip();
+                    }
+                    else
+                    {
+                        PrintNextLine();
+                    }
                 }
                 else
                 {
@@ -70,7 +77,10 @@ public class InkReader : MonoBehaviour
                             SceneDirector.Instance.DirectDayChange(GlobalKnowledge.Day.NextDay());
                         }
                     }
-                    DialoguePrinter.Instance.HideDialogue();
+                    if (!SceneDirector.IsDirecting)
+                    {
+                        DialoguePrinter.Instance.HideDialogue();
+                    }
                 }
             }
         }
