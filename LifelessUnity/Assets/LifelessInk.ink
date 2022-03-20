@@ -7,6 +7,7 @@ VAR MissingDriver = false
 
 VAR Chara = "Charlie"
 VAR Colleague = "Colleague"
+VAR Bar = "Barista"
 
 ->Home
 
@@ -265,8 +266,7 @@ Alright, let's see...
             To lunch I go; I must confess.          #poetry #add #goto:CoffeeShop
         -   else:
             "I work out."
-            Again?          #add
-            Really?!        #add
+            How did you manage to say that to him again.
             It's barely even true!
             What?  Maybe once every second weekend after a blue moon.  Is that a good enough baseline?
             How embarassing.  I wish no one would ever see me a-
@@ -320,7 +320,40 @@ Alright, let's see...
 
 ~ Morning = false
 { DayNumber:
-    -   1: [Charlie awkwardly gets a latte and a sandwich from the barista.  Making such intelligent remarks as "I work out", and the like.]       #goto:Work
+    -   1: 
+        Gardenflower coffee shop!
+        A lovely experience in an otherwise dull part of the day.   #add
+        Much better than quietly sitting in the office, legally obligated not to continue working.
+        Their selection of handmade sandwhiches makes the perfect union with that barista's finely brewed coffee.
+        The perfect.
+        Union.                  #add
+        With that bari-         #add
+        {Bar}: Good afternoon.  What can I get you?
+        {Chara}: Ah!
+        {Bar}: You've reached the front of the line...
+        {Bar}: Occasionally people like to use such an opportunity to tell me their order.  #add
+        {Chara}: HAHA! Right!
+        {Chara}: I-             #add
+        {Chara}: Ummmmmmm~      #add
+        {Bar}: Wow, you sure look like you're with the angels today.
+        {Chara}: You-
+        {Chara}: You think I look like an angel?    #add
+        {Chara}: Well, I mean- I er- work out... And I- um- try to eat healthy-
+        {Bar}: Oh, um, I- It's not that you-
+        {Bar}: You looked like your head was in the clouds, is all I intended.
+        {Bar}: Perhaps you'd like your usual order? I can sort your latte just now and deliver your food when it's finished heating.
+        {Chara}: Yes please that sounds good thank you very much.   #timeSkip
+        {Bar}: Here's your food... Angel.
+        {Chara}: Oh, thank you.
+        "Angel"?! OK!
+        {Chara}: Cou-
+        {Bar}: Wou-
+        I should hear what he has to say...
+        {Bar}: ...would you like me to make you a to-go latte when you leave today too?
+        {Chara}: Yes please, I would!
+        {Chara}: You know me so well.   #add
+        {Bar}: Just... doing my job!
+        Was he... blushing?             #goto:Work
     -   2: [Another day of effective communicating with the barista.  Some potential flirts may have happened from both parties.]                  #goto:Work
     -   3: Where is he?
         [The barista is not in the shop.  His job having been replaced by a succession of vending machines.]    #goto:Work
