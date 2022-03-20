@@ -17,7 +17,7 @@ public class TestScript : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             InteractionRelay ir = FindObjectOfType<InteractionRelay>();
-            ir.PlaySceneDialogue();
+            InkReader.Instance.LocationDialogue(GlobalKnowledge.Location.ToString());
         }
         int dayNum = -1;
         if (Input.GetKeyDown(KeyCode.Alpha1))

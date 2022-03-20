@@ -175,6 +175,7 @@ Alright, let's see...
     -   3:
     -   4:
     -   5:
+        Going to work without a bus or anyone. Oh heck!     #goto:Ending
 }
 -> END
 
@@ -250,7 +251,26 @@ Alright, let's see...
 === FastFood ===
 -> END
 
-
+=== Ending ===
+Finally...
+I made it.  #add
+There's still over an hour before midday. If I skip lunch I can-
+What?
+What's going on?
+The building it's...
+LOCKED.         #add
+Oh no no no no no.
+No no no no no no no no no no no.   #add
+I need to get in to finish my work!
+There's got to be someone inside?
+The doorman?
+A worker?!
+Anyone!
+Just-
+Someone.    #add
+Please.
+I can't succeed on my own.  #nextDay
+-> END
 // { DayNumber:
 //     -   1: 
 //     -   2:

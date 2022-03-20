@@ -17,7 +17,7 @@ public class RelayByLocation
     public InteractionRelay Relay;
 }
 
-public enum eLocation { none = -1, Home, Bus, Work, CoffeeShop, FastFood }
+public enum eLocation { none = -1, Home, Bus, Work, CoffeeShop, FastFood, Ending }
 
 public class BackgroundController : MonoBehaviour
 {

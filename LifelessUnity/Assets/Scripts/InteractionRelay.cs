@@ -5,15 +5,10 @@ using UnityEngine.UI;
 
 public class InteractionRelay : MonoBehaviour
 {
-    public string Setting = "";
-
-    public void PlaySceneDialogue()
-    {
-        InkReader.Instance.LocationDialogue(Setting);
-    }
+    public eLocation Setting = eLocation.none;
 
     public void RelayToReader(string itemName)
     {
-        InkReader.Instance.Interact(Setting, itemName);
+        InkReader.Instance.Interact(Setting.ToString(), itemName);
     }
 }

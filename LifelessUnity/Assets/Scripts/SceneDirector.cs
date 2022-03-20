@@ -78,7 +78,7 @@ public class SceneDirector : MonoBehaviour
 
     private IEnumerator SceneOpeningNarration()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         InkReader.Instance.LocationDialogue(GlobalKnowledge.Location.ToString());
         CleanUp();
