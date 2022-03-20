@@ -35,6 +35,11 @@ public class InkReader : MonoBehaviour
             else
                 Debug.LogError(errorMessage);
         };
+
+        Story.ObserveVariable("Morning", (string varName, object newValue) =>
+        {
+            GlobalKnowledge.IsMorning = (bool)newValue;
+        });
     }
 
     // Update is called once per frame
@@ -54,7 +59,7 @@ public class InkReader : MonoBehaviour
                 }
                 else
                 {
-                    foreach(string tag in Story.currentTags)
+                    foreach (string tag in Story.currentTags)
                     {
                         if (tag.StartsWith("goto:"))
                         {
@@ -93,8 +98,8 @@ public class InkReader : MonoBehaviour
             {
                 if (line.StartsWith(name))
                 {
-                    if(line[name.Length] == ':')
-                    speaker = name;
+                    if (line[name.Length] == ':')
+                        speaker = name;
                     line = line.Substring(name.Length + 1);
                     line.TrimStart(' ');
                 }

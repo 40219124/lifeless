@@ -451,6 +451,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LeaveObject: {fileID: 1734884106}
+  LeaveSprite: {fileID: 21300000, guid: f061b92122cb8c040ba3cf8428c30801, type: 3}
+  SleepSprite: {fileID: 21300000, guid: a56957c67c8aaa74b8aecaeb2c652569, type: 3}
+  LeaveIcon: {fileID: 1734884109}
 --- !u!1 &327258737
 GameObject:
   m_ObjectHideFlags: 0

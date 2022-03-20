@@ -44,7 +44,7 @@ public class InteractionFromButtonRelay : MonoBehaviour
 
     private IEnumerator SparkleRoutine()
     {
-        if (name.Equals("Exit"))
+        if (name.Equals("Leave"))
         {
             yield break;
         }
