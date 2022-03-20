@@ -51,7 +51,7 @@ public class InteractionFromButtonRelay : MonoBehaviour
         SparkRoutineRef = StartCoroutine(SparkleRoutine());
     }
 
-    private float SparkleDelay => Random.Range(10f, 15f);
+    private float SparkleDelay => Random.Range(2f, 4f);
 
     private IEnumerator SparkleRoutine()
     {
@@ -60,7 +60,7 @@ public class InteractionFromButtonRelay : MonoBehaviour
             yield break;
         }
         yield return new WaitForSeconds(0.5f);
-        float delay = Random.Range(0f, 3f);
+        float delay = Random.Range(0f, 2f);
         while (true)
         {
             if (DialoguePrinter.AllowsOtherInteractions() && !SceneDirector.IsDirecting)
