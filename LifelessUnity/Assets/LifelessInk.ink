@@ -36,9 +36,8 @@ VAR Colleague = "Colleague"
             [Charlie rises miffed but optimistic about his ability to sort things.]
             [Reasons that only having approximately one day for each week {Colleague} spent on it probably equates their different productivity levels well.]
         -   else:
-            [Day was slower than desired to so {Colleague}'s absence.]
+            [Day was slower than desired due to {Colleague}'s absence.]
             [Also, this meal is the last dinner food in the house.  Further meals will require the time to shop.]
-            ~ Morning = true
         }
     -   3: 
         {Morning:
@@ -46,7 +45,6 @@ VAR Colleague = "Colleague"
         -   else:
             [Charlie returns with fast food having been very unlucky.]
             [More than just {Colleague} were missing and it hampered progress so much he'd done half a day of overtime to make up for it.]
-            ~ Morning = true
         }
     -   4: 
         {Morning:
@@ -56,7 +54,6 @@ VAR Colleague = "Colleague"
             [Today was even harder than yesterday, putting his arrival slightly after midnight.]
             [Dinner food was used up on Tuesday. The only resort is to eat breakfast supplies instead.]
             [{Chara} is so wiped he can barely eat without sleeping.]
-            ~ Morning = true
         }
     -   5:
         \*Beep beep\*       #poetry
@@ -293,7 +290,7 @@ Alright, let's see...
             {Chara}: The boss was impressed?
             {Colleague}: Oh not yet.  It's only just finished!
             {Colleague}: Jeez!  I can take a little time to breathe before bringing it to the boss.
-            {Chara}: Of course you do.  But does it to be my time you take?
+            {Chara}: Of course you do.  But does it have to be my time you take?
             {Chara}: It's not my lunch break anymore you know.  #add
             {Colleague}: Alright, fine.  
             {Colleague}: Enjoy your "Wallflower" coffee.        #goto:Bus
