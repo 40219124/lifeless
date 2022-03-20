@@ -25,6 +25,8 @@ public class DialoguePrinter : MonoBehaviour
     Coroutine PrintingRoutine;
     public static float TimeHidden = 0f;
 
+    private bool DoSlow = false;
+
     private void Awake()
     {
         Instance = this;
@@ -37,13 +39,13 @@ public class DialoguePrinter : MonoBehaviour
         Reset();
     }
 
-    public void PrintLine(string line, string name = "", bool addToCurrent = false)
+    public void PrintLine(string line, string name = "", bool addToCurrent = false, bool slow = false)
     {
         if (PrintingRoutine != null)
         {
             HideDialogue();
         }
-
+        DoSlow = slow;
         MainObj.SetActive(true);
         IsShowing = true;
         NameObj.SetActive(!name.Equals(""));
@@ -73,10 +75,11 @@ public class DialoguePrinter : MonoBehaviour
         while (printed.Length != line.Length)
         {
             elapsed += Time.deltaTime;
-            while (elapsed > TimePerChar && printed.Length < line.Length)
+            float timePerChar = TimePerChar * (DoSlow ? 2f : 1f);
+            while (elapsed > timePerChar && printed.Length < line.Length)
             {
                 printed += line[printed.Length];
-                elapsed -= TimePerChar;
+                elapsed -= timePerChar;
             }
 
             MainText.text = printed;

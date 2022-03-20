@@ -67,6 +67,10 @@ public class TestScript : MonoBehaviour
         {
             location = 4;
         }
+        if (Input.GetKeyDown(KeyCode.Minus))
+        {
+            location = 5;
+        }
         if (location != -1)
         {
             SceneDirector.Instance.DirectLocationChange((eLocation)location);

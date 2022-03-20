@@ -104,7 +104,9 @@ public class InkReader : MonoBehaviour
                     line.TrimStart(' ');
                 }
             }
-            DialoguePrinter.Instance.PrintLine(line, name: speaker, addToCurrent: Story.currentTags.Contains("add"));
+            DialoguePrinter.Instance.PrintLine(line, name: speaker, 
+                addToCurrent: Story.currentTags.Contains("add"),
+                slow: Story.currentTags.Contains("slow"));
             DialoguePrinter.Instance.SetPoetryState(Story.currentTags.Contains("poetry"));
             return true;
         }

@@ -51,10 +51,6 @@ public class SceneDirector : MonoBehaviour
 
     public void DirectDayChange(eDay day)
     {
-        if(day == eDay.none)
-        {
-            // ~~~ End game yaaaaaaaaaallllllllllllll
-        }
         TransDay = day;
         StartCoroutine(DayChangeRoutine());
     }
@@ -64,7 +60,14 @@ public class SceneDirector : MonoBehaviour
     {
         IsDirecting = true;
         DayCard.sprite = DayCards.Find(x => x.Day.Equals(TransDay)).Sprite;
-        Anim.SetTrigger("DayTransition");
+        if (TransDay != eDay.Thankday)
+        {
+            Anim.SetTrigger("DayTransition");
+        }
+        else
+        {
+            Anim.SetTrigger("Thanks");
+        }
         yield return null;
     }
 
@@ -84,6 +87,11 @@ public class SceneDirector : MonoBehaviour
         CleanUp();
     }
 
+    private IEnumerator WaitOnThanks()
+    {
+        yield return null;
+    }
+
     private void AnimTransitionObscuring()
     {
         if (TransLocation != eLocation.none)
@@ -99,7 +107,14 @@ public class SceneDirector : MonoBehaviour
 
     private void AnimTransitionEnded()
     {
-        StartCoroutine(SceneOpeningNarration());
+        if (TransDay != eDay.Thankday)
+        {
+            StartCoroutine(SceneOpeningNarration());
+        }
+        else
+        {
+            StartCoroutine(WaitOnThanks());
+        }
     }
 
     private void CleanUp()
