@@ -49,7 +49,23 @@ public class DialoguePrinter : MonoBehaviour
         MainObj.SetActive(true);
         IsShowing = true;
         NameObj.SetActive(!name.Equals(""));
-        NameText.text = name;
+        if(name != "")
+        {
+            RectTransform rt = NameObj.GetComponent<RectTransform>();
+            float xPivot = name.Equals("Charlie") ? 0 : 1;
+            float xMult = name.Equals("Charlie") ? -1 : 1;
+            Vector2 pos = rt.anchoredPosition;
+            pos.x = Mathf.Abs(pos.x) * xMult;
+            
+            NameText.text = name;
+
+            rt.pivot = new Vector2(xPivot, rt.pivot.y);
+            rt.anchoredPosition = pos;
+        }
+        else
+        {
+            NameText.text = name;
+        }
 
         PrintingRoutine = StartCoroutine(PrintLineRoutine(line, addToCurrent));
     }
