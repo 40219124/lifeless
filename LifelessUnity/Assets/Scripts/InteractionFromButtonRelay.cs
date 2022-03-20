@@ -22,17 +22,33 @@ public class InteractionFromButtonRelay : MonoBehaviour
             newColour.a = 0;
             image.color = newColour;
         }
-        SparkRoutineRef = StartCoroutine(SparkleRoutine());
+    }
+
+    private void OnEnable()
+    {
+        if (SparkRoutineRef == null)
+        {
+            SparkRoutineRef = StartCoroutine(SparkleRoutine());
+        }
+    }
+    private void OnDisable()
+    {
+        if (SparkRoutineRef != null)
+        {
+            StopCoroutine(SparkRoutineRef);
+            SparkRoutineRef = null;
+        }
     }
 
     private float SparkleDelay => Random.Range(10f, 15f);
 
     private IEnumerator SparkleRoutine()
     {
+        yield return new WaitForSeconds(0.5f);
         float delay = SparkleDelay;
         while (true)
         {
-            if (DialoguePrinter.AllowsOtherInteractions())
+            if (DialoguePrinter.AllowsOtherInteractions() && !SceneDirector.IsDirecting)
             {
                 delay -= Time.deltaTime;
                 if(delay <= 0f)
@@ -48,7 +64,7 @@ public class InteractionFromButtonRelay : MonoBehaviour
 
     public void RelayClick()
     {
-        if (DialoguePrinter.AllowsOtherInteractions())
+        if (DialoguePrinter.AllowsOtherInteractions() && !SceneDirector.IsDirecting)
         {
             Relay.RelayToReader(name);
             StopCoroutine(SparkRoutineRef);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TestScript : MonoBehaviour
 {
+    private bool IsMorning = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,9 +40,42 @@ public class TestScript : MonoBehaviour
         {
             dayNum = 5;
         }
-        if(dayNum!= -1)
+        if (dayNum != -1)
         {
-            InkReader.Instance.SetDay(dayNum);
+            SceneDirector.Instance.DirectDayChange((eDay)dayNum);
+        }
+
+
+        int location = -1;
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            location = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            location = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            location = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            location = 3;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            location = 4;
+        }
+        if (location != -1)
+        {
+            SceneDirector.Instance.DirectLocationChange((eLocation)location);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            IsMorning = !IsMorning;
+            InkReader.Instance.SetIsMorning(IsMorning);
         }
     }
 }

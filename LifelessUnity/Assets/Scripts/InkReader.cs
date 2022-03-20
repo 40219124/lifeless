@@ -60,7 +60,7 @@ public class InkReader : MonoBehaviour
         }
     }
 
-    public void SceneDialogue(string setting)
+    public void LocationDialogue(string setting)
     {
         Story.ChoosePathString(setting);
         PrintNextLine();
@@ -98,5 +98,10 @@ public class InkReader : MonoBehaviour
     public void SetDay(int day)
     {
         Story.variablesState["DayNumber"] = day;
+    }
+
+    public void SetIsMorning(bool morning)
+    {
+        Story.variablesState["Morning"] = morning;
     }
 }

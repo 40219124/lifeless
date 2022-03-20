@@ -9,7 +9,7 @@ public class InteractionRelay : MonoBehaviour
 
     public void PlaySceneDialogue()
     {
-        InkReader.Instance.SceneDialogue(Setting);
+        InkReader.Instance.LocationDialogue(Setting);
     }
 
     public void RelayToReader(string itemName)
