@@ -51,6 +51,10 @@ public class SceneDirector : MonoBehaviour
 
     public void DirectDayChange(eDay day)
     {
+        if(day == eDay.none)
+        {
+            // ~~~ End game yaaaaaaaaaallllllllllllll
+        }
         TransDay = day;
         StartCoroutine(DayChangeRoutine());
     }

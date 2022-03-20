@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public enum eDay { none = 0, Monday, Tuesday, Wednesday, Thursday, Friday}
+public enum eDay { none = 0, Monday, Tuesday, Wednesday, Thursday, Friday }
 public enum eCharacter { none = -1, Monologue, Charlie, Driver, Colleague, Barista, Worker }
+
+public static class EnumHelper
+{
+    public static eDay NextDay(this eDay day) => (eDay)(((int)day + 1) % ((int)eDay.Friday + 1));
+}
 
 public class GlobalKnowledge : MonoBehaviour
 {
@@ -47,4 +52,5 @@ public class GlobalKnowledge : MonoBehaviour
     {
         Initialise();
     }
+
 }

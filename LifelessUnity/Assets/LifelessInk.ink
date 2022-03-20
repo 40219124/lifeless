@@ -55,7 +55,7 @@ VAR Colleague = "Colleague"
             As long as I can give full attention to my work over the coming days I have no reason to worry though.
             I'll get it all done, and I'll do it all myself.
             It's pretty clear no one else is capable of helping me with anything. #add
-            I could do everything much better on my own.        // Ooh!! Is that a doom flag? :O It just might be!!
+            I could do everything much better on my own.  #nextDay      // Ooh!! Is that a doom flag? :O It just might be!!
         }
     -   5:
         \*Beep beep\*       #poetry
@@ -116,12 +116,12 @@ Alright, let's see...
 		{ DayNumber <= 3: Odds? I make my own choices. | ... They are not. }
 	-   "As he read, I fell in love the way you fall asleep: slowly, and then all at once."  // John Green, The Fault in Our Stars
 	    { MissingBarista: I'm sorry you'll have to lose that. | Hmm. }
-	-   "To be, or not to be"                           #poetry // Hamlet, Shakespeare
-	    {Chara}: That is the question:                           #poetry
-	    {Chara}: Whether 'tis nobler in the mind to suffer       #poetry
-	    {Chara}: The slings and arrows of outrageous fortune,    #poetry #add
-	    {Chara}: Or to take arms against a sea of troubles       #poetry #add
-	    {Chara}: And by opposing end them.                       #poetry #add
+	-   "To be, or not to be"                                   #poetry // Hamlet, Shakespeare
+	    {Chara}: That is the question:                          #poetry
+	    {Chara}: Whether 'tis nobler in the mind to suffer      #poetry
+	    {Chara}: The slings and arrows of outrageous fortune,   #poetry #add
+	    {Chara}: Or to take arms against a sea of troubles      #poetry #add
+	    {Chara}: And by opposing end them.                      #poetry #add
 }
 -> END
 
@@ -130,7 +130,7 @@ Alright, let's see...
     -   1: 
         A functional object at a functional size.
         Bigger is not always better.
-        Where would I put my chair? #add
+        Where would I put my chair?     #add
     -   2:
         If I can make something of myself; why can't you make yourself too
     -   3:
@@ -141,6 +141,16 @@ Alright, let's see...
         To stay, to sleep;              #poetry
         To sleep: perchance to dream:   #poetry #add
         Ay, there's my wish             #poetry #add
+}
+-> END
+
+= Leave
+{ DayNumber:
+    -   1: Unto the breach.             #goto:Bus
+    -   2: Exit, pursued by time.       #goto:Bus
+    -   3: I can do this.               #goto:Bus
+    -   4: I'll make it through.        #goto:Bus
+    -   5: Just a little more..         #goto:Bus
 }
 -> END
 
@@ -163,3 +173,10 @@ Alright, let's see...
 === Work ===
 -> END
 
+// { DayNumber:
+//     -   1: 
+//     -   2:
+//     -   3:
+//     -   4:
+//     -   5:
+// }

@@ -54,6 +54,17 @@ public class InkReader : MonoBehaviour
                 }
                 else
                 {
+                    foreach(string tag in Story.currentTags)
+                    {
+                        if (tag.StartsWith("goto:"))
+                        {
+                            SceneDirector.Instance.DirectLocationChange((eLocation)System.Enum.Parse(typeof(eLocation), tag.Substring(("goto:").Length)));
+                        }
+                        if (tag.Equals("nextDay"))
+                        {
+                            SceneDirector.Instance.DirectDayChange(GlobalKnowledge.Day.NextDay());
+                        }
+                    }
                     DialoguePrinter.Instance.HideDialogue();
                 }
             }

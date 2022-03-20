@@ -44,8 +44,12 @@ public class InteractionFromButtonRelay : MonoBehaviour
 
     private IEnumerator SparkleRoutine()
     {
+        if (name.Equals("Exit"))
+        {
+            yield break;
+        }
         yield return new WaitForSeconds(0.5f);
-        float delay = SparkleDelay;
+        float delay = Random.Range(0f, 3f);
         while (true)
         {
             if (DialoguePrinter.AllowsOtherInteractions() && !SceneDirector.IsDirecting)
@@ -67,8 +71,11 @@ public class InteractionFromButtonRelay : MonoBehaviour
         if (DialoguePrinter.AllowsOtherInteractions() && !SceneDirector.IsDirecting)
         {
             Relay.RelayToReader(name);
-            StopCoroutine(SparkRoutineRef);
-            SparkRoutineRef = null;
+            if (SparkRoutineRef != null)
+            {
+                StopCoroutine(SparkRoutineRef);
+                SparkRoutineRef = null;
+            }
         }
     }
 }
