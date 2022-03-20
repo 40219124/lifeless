@@ -25,9 +25,38 @@ VAR Colleague = "Colleague"
             Upon this day fools love to loathe. #poetry #add
             Yes... I think today will be a good day.
         -   else:
-            A good day deserves to be followed by a good meal.
+            A successful day, all things told.
+            If {Colleague} is hitting their deadlines I've got nothing to worry about.
+            And a good day deserves to be followed by a good meal.
             This fridge is getting a little empty, I'll have to go shopping soon.
             That's fine, I have the time. I can just go later in the week.
+        }
+    -   2:
+        {Morning:
+            [Charlie rises miffed but optimistic about his ability to sort things.]
+            [Reasons that only having approximately one day for each week {Colleague} spent on it probably equates their different productivity levels well.]
+        -   else:
+            [Day was slower than desired to so {Colleague}'s absence.]
+            [Also, this meal is the last dinner food in the house.  Further meals will require the time to shop.]
+            ~ Morning = true
+        }
+    -   3: 
+        {Morning:
+            [Charlie hopes for a lucky break today, so that he might have time to restock his food supplies.]             
+        -   else:
+            [Charlie returns with fast food having been very unlucky.]
+            [More than just {Colleague} were missing and it hampered progress so much he'd done half a day of overtime to make up for it.]
+            ~ Morning = true
+        }
+    -   4: 
+        {Morning:
+            [Tiredness is starting to seep in after these few unusual days.]
+        -   else:
+            [Again, {Chara} returns without any fast food.]
+            [Today was even harder than yesterday, putting his arrival slightly after midnight.]
+            [Dinner food was used up on Tuesday. The only resort is to eat breakfast supplies instead.]
+            [{Chara} is so wiped he can barely eat without sleeping.]
+            ~ Morning = true
         }
     -   5:
         \*Beep beep\*       #poetry
@@ -120,7 +149,7 @@ Alright, let's see...
 { DayNumber:
     -   1: 
         {Morning:
-            Unto the breach.             #goto:Bus
+            {Chara}: Unto the breach.             #goto:Bus
         -   else:
             \*Vrrrrr, vrrrrr\*      #poetry
             \*Vrrrrr, vrrrrr\*      #poetry #add
@@ -150,10 +179,32 @@ Alright, let's see...
             I could do everything much better on my own.  #nextDay      // Ooh!! Is that a doom flag? :O It just might be!!
             ~ Morning = true
         }
-    -   2: Exit, pursued by time.       #goto:Bus
-    -   3: I can do this.               #goto:Bus
-    -   4: I'll make it through.        #goto:Bus
-    -   5: Just a little more..         #goto:Bus
+    -   2:
+        {Morning:
+            {Chara}: Exit, pursued by time.       #goto:Bus
+        -   else:
+            [{Chara} mentally rallies around the idea that he can push himself harder tomorrow and fix everything.]  #nextDay      
+            ~ Morning = true
+        }
+    -   3: 
+        {Morning:
+            {Chara}: I can do this.               #goto:Bus
+        -   else:
+            Will I ever see you again?  #nextDay      
+            ~ Morning = true
+        }
+    -   4: 
+        {Morning:
+            {Chara}: I'll make it through.        #goto:Bus
+        -   else:
+            {Chara}: Finally.  
+            {Chara}: ...         #nextDay      
+            ~ Morning = true
+        }
+    -   5:  It's... Already starting time?
+            I overslept this much and I only just realised.
+            {Chara}: Just a little more-
+            {Chara}: Just a little more and you'll be through this.     #add #goto:Bus
 }
 -> END
 
@@ -168,21 +219,43 @@ Alright, let's see...
             This journey is at least an hour on foot.   #add
             Indeed, the bus suits me just fine.         #goto:Work
         -   else:
-            A successful day, all things told.
-            If {Colleague} is hitting their deadlines I've got nothing to worry about.  #goto:Home
+            [Charlie finds himself unable to get change for a large bank note from the bus driver.]
+            [An unknown passenger saves him from the dilemma of massively over paying, or walking, by exchanging him several less significant notes.]        #goto:Home
         }
     -   2:
+        { Morning:
+            [Eager to get started on things, Charlie impatiently rides the bus to work.]       #goto:Work
+        -   else:
+            [Disappointed in the twists his day took Charlie considers the fast food place as they drive past.]
+            [Thinking he might need to buy meals if his days continue their current productivity trajectory.]    #goto:Home
+        }
     -   3:
+        { Morning:
+            [Charlie barely notices the journey, as he's already solving work problems in his head.]       #goto:Work
+        -   else:
+            [{Chara} travels home well past dinner time, yet departs the bus at an earlier stop.]
+            [{Chara}'s stop is next to the fast food place where he will buy dinner before carrying it home.]     #goto:FastFood
+        }
     -   4:
+        { Morning:
+            [{Chara} boards the bus tired.  He is crabby with the people he talks to.]
+            [When {Chara} gets to work he is unsure if he slept on the bus, or just sat there unthinking the whole time.]       #goto:Work
+        -   else:
+            [An even later return than Wednesday.  It's practically midnight.]
+            [{Chara} makes the same early exit at the fast food restaurant.] #goto:FastFood
+        }
     -   5:
-        Going to work without a bus or anyone. Oh heck!     #goto:Ending
+        [There is no bus.]
+        [Charlie tries to take his car instead, but finds no one operating the barrier in his car park.]
+        [Charlie walks to work, hoping to find another bus service, or taxi to hail, on his way.]
+        [He finds neither and walks the whole 70 minutes to the office as it begins to rain.]       #goto:Ending
 }
 -> END
 
 === Work ===
 { DayNumber:
     -   1:
-    { Morning:
+        { Morning:
             In the office at last.
             Quick stop in the cubicle to deposit my things, then it's off to the morning meeting.
             [...]
@@ -195,7 +268,7 @@ Alright, let's see...
             [...]
             Upon this strike, this final press,     #poetry
             To lunch I go; I must confess.          #poetry #add #goto:CoffeeShop
-    -   else:
+        -   else:
             "I work out."
             Again?          #add
             Really?!        #add
@@ -226,29 +299,54 @@ Alright, let's see...
             {Colleague}: Enjoy your "Wallflower" coffee.        #goto:Bus
     }
     -   2:
+        { Morning:
+            [{Colleague} is not in the morning meeting.  Charlie gets on with other work expecting {Colleague} later in the day.]                        #goto:CoffeeShop
+        -   else:
+            [{Colleague} still isn't around and by mid afternoon {Chara} has to slowly find all of {Colleague}'s failed account info himself.]       #goto:Bus
+        }
     -   3:
+        { Morning:
+            [{Chara} works as best he can but finds that certain people are slow to respond to his emails]  #goto:CoffeeShop
+        -   else:
+            [It's clear {Chara} will not be getting those particular email requests answered.]       
+            [{Chara} puts in additional hours (roughly 3 more) to catch up time lost to finding his own answers.]        #goto:Bus
+        }
     -   4:
-    -   5:
+        { Morning:
+            [Morning meeting must've been staffed with roughly one third the ususal staff.]
+            [{Chara} already knows this is not good news for making up lost work today, but resolves to make the best of it.]       #goto:CoffeeShop
+        -   else:
+            [After a very low productivity day due to the office skeleton crew {Chara} departs exhausted.]       #goto:Bus
+        }   
 }
 -> END
 
 === CoffeeShop ===
 
--> Leave
-
+~ Morning = false
 { DayNumber:
-    -   1: 
-    -   2:
-    -   3: (AbsentBarista) Where is he?
-    
+    -   1: [Charlie awkwardly gets a latte and a sandwich from the barista.  Making such intelligent remarks as "I work out", and the like.]       #goto:Work
+    -   2: [Another day of effective communicating with the barista.  Some potential flirts may have happened from both parties.]                  #goto:Work
+    -   3: Where is he?
+        [The barista is not in the shop.  His job having been replaced by a succession of vending machines.]    #goto:Work
+    -   4:
+        [Charlie returns to the Gardenflower, not knowing how else to spend his lunch. He does not enjoy his electronically vended meal.]   #goto:Work
 }
-
-= Leave
-    ~ Morning = false
-
 -> END
 
 === FastFood ===
+{ DayNumber:
+    -   3:
+        [Charlie is terse and unkind to the fast food worker.]
+        [Charlie thinks about how insignificant their job is, and the idea that what little money they earn is probably too much.]
+        [Perhaps has a sad thought about the higher quality workers (the barista) that he can't buy from anymore.]  #goto:Home
+    -   4:
+        [Charlie arrives after an exhausting day just needing anything for dinner that night.]
+        [The fast food restaurant is closed.  A note inside the door citing a lack of staff.]
+        {Chara}: Please. You can't not be here!
+        {Chara}: I need you!
+        {Chara}: What am I supposed to eat!     #goto:Home
+}
 -> END
 
 === Ending ===
@@ -269,8 +367,9 @@ Anyone!
 Just-
 Someone.    #add
 Please.
-I can't succeed on my own.  #nextDay
+I can't succeed on my own.  #slow #nextDay
 -> END
+
 // { DayNumber:
 //     -   1: 
 //     -   2:
