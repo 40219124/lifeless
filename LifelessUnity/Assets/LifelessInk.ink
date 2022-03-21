@@ -354,11 +354,40 @@ Alright, let's see...
         {Chara}: You know me so well.   #add
         {Bar}: Just... doing my job!
         Was he... blushing?             #goto:Work
-    -   2: [Another day of effective communicating with the barista.  Some potential flirts may have happened from both parties.]                  #goto:Work
+    -   2: 
+        {Bar}: Welcome back.
+        {Bar}: If you're looking for the ambrosia, then I'm afraid we don't have any.
+        {Bar}: I've heard regular humans suffer for eating it, and I can't risk poisoning all my customers.
+        {Chara}: I but seach for the fare of mortals.
+        {Chara}: But if you did come across any ambrosia...
+        {Chara}: I'm sure you, at least, could share that meal with me. #add
+        {Bar}: Is that so...?
+        {Bar}: Well, I don't know if you noticed but there's no one here right now-
+        I hadn't.
+        {Bar}: -and I've been eyeing these brownies for what feels like hours now...
+        {Bar}: So how about we share that meal now?
+        {Bar}: After I get you what you want, that is.
+        What I want...
+        I should restrict my answer to lunch related options.   #add
+        {Chara}: Well, I would like-        #timeSkip
+        {Bar}: He really did that? And the deadline is in three days?!
+        {Chara}: Oh, absolutely.  But it's no issue.  I can get it done one way or the other.
+        {Chara}: Tackling challenges by myself has never been a barrier to my success before.
+        {Bar}: That's a lot to take on...
+        {Bar}: You must live for the weekends.  There's nothing like having a lazy day when you've earned it.
+        I usually spend weekends planning other work, or itching for Monday...
+        {Chara}: Haha, yeah.  I love to relax.  I know exactly what that entails.
+        {Bar}: That's good!  It was starting to sound like your time was all spent working.
+        {Bar}: It's nice to hear you might have some to spare.      #add
+        {Bar}: Oh- But look, I have a customer.  And you are overdue a to-go latte if I've got the time right.
+        {Bar}: It'll be available to pick up whenever you're ready to collect it.     #goto:Work
     -   3: Where is he?
-        [The barista is not in the shop.  His job having been replaced by a succession of vending machines.]    #goto:Work
+        [The barista is not in the shop.  His job having been replaced by a succession of vending machines dispensing hot drinks, cold drinks, and packaged sandwiches.]    #goto:Work
     -   4:
-        [Charlie returns to the Gardenflower, not knowing how else to spend his lunch. He does not enjoy his electronically vended meal.]   #goto:Work
+        [Charlie returns to the Gardenflower, not knowing how else to spend his lunch.]
+        [Hoping perhaps that if {Bar} isn't there, perhaps there'll be something to tell him where he is.] 
+        [He finds neither {Bar} nor any clues.]
+        [He does not enjoy his electronically vended meal.  If he wanted calories, he could've stayed at the office.]   #goto:Work
 }
 -> END
 
