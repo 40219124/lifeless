@@ -8,6 +8,7 @@ VAR MissingDriver = false
 VAR Chara = "Charlie"
 VAR Colleague = "Colleague"
 VAR Bar = "Barista"
+VAR Worker = "Worker"
 
 ->Home
 
@@ -34,24 +35,54 @@ VAR Bar = "Barista"
         }
     -   2:
         {Morning:
-            [Charlie rises miffed but optimistic about his ability to sort things.]
-            [Reasons that only having approximately one day for each week {Colleague} spent on it probably equates their different productivity levels well.]
+            Another morning.  Another day picking up other's slack.
+            Another Tuesday.            #add
+            A day upon which fate has sprung me a trap.  But that is naught but an inconvenience.
+            A bur in my side.  A thorn in the pad of my mighty foot.  The fly in my Michelin star earning soup.
+            Yes.  I will not be quashed by such measly troubles.
+            I will conquer this new challenge and non shall see me flinch as I do so.
+            So it took {Colleague} three weeks - so what? 
+            Having three days to accomplish what took them three weeks seems like more than enough time.
         -   else:
-            [Day was slower than desired due to {Colleague}'s absence.]
-            [Also, this meal is the last dinner food in the house.  Further meals will require the time to shop.]
+            Just because the work day wasn't the best, doesn't mean dinner has to follow suit.
+            ...
+            A nearly empty supply of food however.  That might influence things a bit.
+            Hah, but not enough!  I can envision plenty of options with just these few ingredients!
+            But, uh... Only for tonight.  There's seriously not enough for tomorrow.  I need to go shopping.
         }
     -   3: 
         {Morning:
-            [Charlie hopes for a lucky break today, so that he might have time to restock his food supplies.]             
+            Another morning.  Wednesday.
+            It's going to be a busy day ahead.  The rope is getting slacker, but I'll tighten it up soon enough.
+            Yes.  With no more bad luck (and certain uplifting lunches) I will certainly have no issues righting the wrongs of others.
+            I will commit hard to my work.
+            My efforts will ensure success.     #add
+            Lunch will re-energise me.          #add
+            I will succeed on my own.           #add           
         -   else:
-            [Charlie returns with fast food having been very unlucky.]
-            [More than just {Colleague} were missing and it hampered progress so much he'd done half a day of overtime to make up for it.]
+            Home has never felt so comforting.
+            What a bleak day from start to finish.
+            But finally fortune has seen fit to bless the worthy with their feast.
+            Let's see:
+            Looks alright. Smells not-terrible. #add
+            Tastes...                           #add
+            Vegetarian?!                        #add
+            Of course the person who I'd ask for their preference would be a vegetarian.
+            This is-
+            Not bad actually.       #add
+            It seems luck has chosen me again.  Someone may have given me vegetaian food, but fate saw fit to make it tasty.
+            Glad to have you on my side Great Weaver.
         }
     -   4: 
         {Morning:
-            [Tiredness is starting to seep in after these few unusual days.]
+            Morning, already?
+            Thursday?
+            What a day.                         #poetry
+            It sure will be excellent.          #poetry #add
+            Things will go good.                #poetry #add
+            And they'll all be... excellent.    #poetry #add
         -   else:
-            [Again, {Chara} returns without any fast food.]
+            [{Chara} returns without any fast food.]
             [Today was even harder than yesterday, putting his arrival slightly after midnight.]
             [Dinner food was used up on Tuesday. The only resort is to eat breakfast supplies instead.]
             [{Chara} is so wiped he can barely eat without sleeping.]
@@ -181,13 +212,18 @@ Alright, let's see...
         {Morning:
             {Chara}: Exit, pursued by time.       #goto:Bus
         -   else:
-            [{Chara} mentally rallies around the idea that he can push himself harder tomorrow and fix everything.]  #nextDay      
+            Rest well valiant one, for tomorrow you must exert yourself on the battlefield to great effect!
+            For honour!
+            For accounting  #add
+            For-            #add #nextDay      
             ~ Morning = true
         }
     -   3: 
         {Morning:
             {Chara}: I can do this.               #goto:Bus
         -   else:
+            Things may be at a low point now; but just as the centre of a cable hangs the lowest, so too is Wednesday the lowest point of this week.
+            It's all going to go be up from here.   #timeSkip
             Will I ever see you again?  #nextDay      
             ~ Morning = true
         }
@@ -222,22 +258,48 @@ Alright, let's see...
         }
     -   2:
         { Morning:
-            [Eager to get started on things, Charlie impatiently rides the bus to work.]       #goto:Work
+            How nice to be able to pay so easily for this bus ride.
+            Luck is surely smiling on me, giving me such helpfully sized currency for my bus travels.
+            Bus travels that need to hurry up!
+            Some people have work to do on here!    #add #goto:Work
         -   else:
-            [Disappointed in the twists his day took Charlie considers the fast food place as they drive past.]
-            [Thinking he might need to buy meals if his days continue their current productivity trajectory.]    #goto:Home
+            What a pain!
+            First I am laboured with additional work.  And then nobody even has the grace to give it to me.
+            If this keeps up I'll have to work overtime just to get everything wrapped up.
+            It'll be hard to find time for cooking but- Is that a fast food restaurant?
+            We're only one stop away from where I depart, how was I unaware I resided near something like... this.
+            Still, if I do end up going into heavy overtime that might just be my saving grace.   #goto:Home
         }
     -   3:
         { Morning:
-            [Charlie barely notices the journey, as he's already solving work problems in his head.]       #goto:Work
+            \-I have that sum from the first branch; 
+            then the second branch gives me-       #add #goto:Work
         -   else:
-            [{Chara} travels home well past dinner time, yet departs the bus at an earlier stop.]
-            [{Chara}'s stop is next to the fast food place where he will buy dinner before carrying it home.]     #goto:FastFood
+            Eurgh, I'm so sick of how cold it is.  
+            I should've checked the schedule before I left the office.  But instead I've been standing here, out in the cold, waiting for a stupid bus that still won't be here for another twenty stupid minutes.
+            Buses should never have reduced schedules when it's late.  
+            They should be just as frequent at all times of the day.    #add
+            I could've used this time to get more work done.  But it's not worth going back in now that I'm here.
+            It's a nice night though.
+            The sky is clear.  The wind is calm.  The stars are pretty.     #add
+            I may as well brush up on my constellations, to pass the time.    #goto:FastFood
         }
     -   4:
         { Morning:
-            [{Chara} boards the bus tired.  He is crabby with the people he talks to.]
-            [When {Chara} gets to work he is unsure if he slept on the bus, or just sat there unthinking the whole time.]       #goto:Work
+            What a beligerant driver.  Can't grasp a destination because it wasn't followed by the word, "please".
+            Perhaps just take me to work without any of this nonsense-
+            Please!         #slow #add
+            A waste of my time.  I should get on and think about more productive things.
+            If I consider that document...
+            that I found... last night...   #add
+            and...      #slow #timeSkip #add
+            Um, yes the document.  There was an important part in the data I already had.
+            It's important that I... update...
+            the column...       #slow #timeSkip #add
+            Work?   #slow
+            Is that... my work...?
+            Oh heck that's my work! I need to depart immediately!   
+            {Chara}: Driver, hold the bus- Please! #goto:Work
         -   else:
             [An even later return than Wednesday.  It's practically midnight.]
             [{Chara} makes the same early exit at the fast food restaurant.] #goto:FastFood
@@ -295,16 +357,56 @@ Alright, let's see...
     }
     -   2:
         { Morning:
-            [{Colleague} is not in the morning meeting.  Charlie gets on with other work expecting {Colleague} later in the day.]                        #goto:CoffeeShop
+            Well isn't this a fun coincidence - two morning meetings in a row where {Colleague} is being strange.
+            Yesterday they were unusually happy...
+            And today they're unusually not even here!  #add
+            I can only assume it's because they got so wrapped up in preparing the work they need to hand over to me that they totally forgot to the meeting today.    #timeSkip
+            It appears I was wrong.  No nicely presented account. No {Colleague}.
+            I can't believe they'd sleep in on a day when I was going to help them.
+            At least this means I can focus on other work for now.  There's no way they could still be missing by the time I'm back from lunch.     #goto:CoffeeShop
         -   else:
-            [{Colleague} still isn't around and by mid afternoon {Chara} has to slowly find all of {Colleague}'s failed account info himself.]       #goto:Bus
+            Alright, time to face the rest of the day!
+            A truly infintesimal concern after a lunch as great as that.    #add
+            All I have to do is find {Colleague}, finally get that account from them, and then- 
+            Perhaps, first I'll set this coffee at my desk, and then I'll go find them.     #add
+            Yes, that plan has far fewer headaches in it.       #timeSkip
+            They're still not here.  Nobody has seen them today!  How can he do this to-      #add
+            It's fine.  We have a centralised database.  It'll take some time but I can work out all the details from there.
+                   #goto:Bus
         }
     -   3:
         { Morning:
-            [{Chara} works as best he can but finds that certain people are slow to respond to his emails]  #goto:CoffeeShop
+            Alright, time for me to get into the real thick of this.  
+            I've already worked out the theory of how to start, but first I'll just send off some emails so that the responses are already in my inbox when I need them.
+            Efficiency is the core of being successful after all.
+            Step, the first: correlate-     #timeSkip
+            Excellent.  A genuinely flawless piece of database work.
+            Now, I ought to have recieved some of those documents I requested by now, and I can start cross-checking the information.
+            Go to emails... and...
+            Nothing!    #add
+            If this is some collective practical joke it is very ill timed.
+            Who cares?  
+            I'll just work around it for now.       #add #goto:CoffeeShop
         -   else:
-            [It's clear {Chara} will not be getting those particular email requests answered.]       
-            [{Chara} puts in additional hours (roughly 3 more) to catch up time lost to finding his own answers.]        #goto:Bus
+            Ok, back to it... Back to it...
+            Just... gotta...
+            ...                 #add
+            What happened to the coffee shop?
+            Why is no one there?  Why isn't the barista-    #add
+            No!  No.  It's time to focus on work.           #add
+            So this account here, needs to... reference...
+            This other... one...        #add
+            But what if I can never see him again?
+            Things were going so well, I- Need to focus!    #add #timeSkip
+            The end of the working day has arrived. 
+            For everyone else.      #add
+            I however received emails back from a scarce few people, so now it's up to me to spend my evening sourcing the information they were supposed to deliver to me hours ago.
+            It's not like I haven't found my own documents before.  And if I can find one document, I can find a dozen.
+            And I can do it-
+            All.        #slow
+            On.         #slow #add
+            My.         #slow #add
+            Own.        #slow #add #goto:Bus
         }
     -   4:
         { Morning:
@@ -381,8 +483,27 @@ Alright, let's see...
         {Bar}: It's nice to hear you might have some to spare.      #add
         {Bar}: Oh- But look, I have a customer.  And you are overdue a to-go latte if I've got the time right.
         {Bar}: It'll be available to pick up whenever you're ready to collect it.     #goto:Work
-    -   3: Where is he?
-        [The barista is not in the shop.  His job having been replaced by a succession of vending machines dispensing hot drinks, cold drinks, and packaged sandwiches.]    #goto:Work
+    -   3: 
+        What a frustrating day so far.
+        Everyone seems determined to make things hard for me.
+        But that's fine.
+        As I've always said: I achieve all my success on my own.
+        Other people have never made a difference to me.        #add
+        At least I'll be able to enjoy my hard earned lunch before getting back in the thick of things.
+        If I'm lucky the shop will even be empty again and maybe...
+        {Chara}: What...
+        {Chara}: This is...
+        Vending machines???
+        What on this mortal coil are vending machines doing here?!
+        The counter and everything have completely gone. And been replaced... By vending machines!
+        The shop's empty of people alright.  But this...
+        It's missing the wrong people.               #add
+        Whatever. Fine. I don't have time for this.
+        Let's see... Hot drinks... Cold drinks, and... Sandwiches... Right, I guess I'll get-   #timeSkip
+        What a strongly average meal that was.
+        Well, at least it passed the time.  Coming out here was something to do during lunch I suppose.
+        But I'd gotten used to my lunches having a little more...
+        Warmth...           #add #goto:Work
     -   4:
         [Charlie returns to the Gardenflower, not knowing how else to spend his lunch.]
         [Hoping perhaps that if {Bar} isn't there, perhaps there'll be something to tell him where he is.] 
@@ -394,9 +515,30 @@ Alright, let's see...
 === FastFood ===
 { DayNumber:
     -   3:
-        [Charlie is terse and unkind to the fast food worker.]
-        [Charlie thinks about how insignificant their job is, and the idea that what little money they earn is probably too much.]
-        [Perhaps has a sad thought about the higher quality workers (the barista) that he can't buy from anymore.]  #goto:Home
+        There's the high quality establishment providing my food for tonight.  It seems to be burger focussed.
+        That's sufficient.  Some carbohydrates from the bread, and protein from the meat.  Enough to get by on for a little while.
+        No use standing out here getting cold, time to head in.
+        What is that smell?  It's food?
+        I think?        #add
+        But, it somehow smells like the generic concept of food, with no specific foods actually present.
+        I should've worked hard enough to have time for shopping.  Tomorrow I'll avoid making the same mistake.
+        {Worker}: Welcome to Lunar Burger, where the food-
+        {Chara}: Yeah, I don't want to hear whatever the end to your awful catchphrase is.
+        {Chara}: I just need one of whatever an average meal here looks like.
+        {Worker}: We have a large selection of popular items, which-
+        {Chara}: No no.  I don't need to hear the list of options, and the cute names your gunny marketing division came up with.
+        {Chara}: I just need whatever contains enough calories to count as dinner.
+        {Worker}: ...Certainly.  And before I put that in do you have any food allergies or intolerances I should be aware of?
+        {Chara}: Yes, you got me.  
+        {Chara}: I have a crippling list of food allergies and decided I'd like to live based on the luck of the draw process of getting a fast food worker to pick my meals.
+        Who knew I'd be dealing with one of the great thinkers of our time.  I'm sure she's worth every penny they spend on her wages.
+        {Chara}: If it would speed up this process, just give me whatever you'd eat from this menu.
+        {Chara}: And... Do you have any apple juice?
+        {Worker}: Yes we have bottles of apple juice.
+        {Worker}: I'll add a bottle to your order.
+        {Chara}: Very good.
+        It was never this hard to get what I wanted at Gardenflower.
+        How can she have a job while {Bar} lost his.  How much can this place really benefit anyone.    #goto:Home
     -   4:
         [Charlie arrives after an exhausting day just needing anything for dinner that night.]
         [The fast food restaurant is closed.  A note inside the door citing a lack of staff.]
