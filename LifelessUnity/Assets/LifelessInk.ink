@@ -9,6 +9,8 @@ VAR Chara = "Charlie"
 VAR Colleague = "Colleague"
 VAR Bar = "Barista"
 VAR Worker = "Worker"
+VAR Driver = "Driver"
+VAR Pass = "Passenger"
 
 ->Home
 
@@ -82,10 +84,14 @@ VAR Worker = "Worker"
             Things will go good.                #poetry #add
             And they'll all be... excellent.    #poetry #add
         -   else:
-            [{Chara} returns without any fast food.]
-            [Today was even harder than yesterday, putting his arrival slightly after midnight.]
-            [Dinner food was used up on Tuesday. The only resort is to eat breakfast supplies instead.]
-            [{Chara} is so wiped he can barely eat without sleeping.]
+            It looks like this is it.
+            There's nothing else for it.
+            If all I have to eat is breakfast food.
+            Then my only option:
+            Is to eat breakfast food.    #add
+            I just have to... Get the food together. 
+            With the appropriate... Dishware.   #add
+            {Chara}: If you don't eat this soon you'll be sleeping in it.  Get it together.
         }
     -   5:
         \*Beep beep\*       #poetry
@@ -100,7 +106,8 @@ VAR Worker = "Worker"
         There's-
         Um... I'll...
         Wait until lunch.   #add
-        I guess...          #add
+        As if that's going to be any good.
+        But it's my only choice.
 }
 -> END
 
@@ -253,8 +260,19 @@ Alright, let's see...
             This journey is at least an hour on foot.   #add
             Indeed, the bus suits me just fine.         #goto:Work
         -   else:
-            [Charlie finds himself unable to get change for a large bank note from the bus driver.]
-            [An unknown passenger saves him from the dilemma of massively over paying, or walking, by exchanging him several less significant notes.]        #goto:Home
+            {Driver}: Alright, that's just three-fifty then.
+            {Chara}: Not a problem, here is a fifty.  And yes, I would like the change.
+            {Driver}: I'm sorry but I can't do change for that much.
+            {Chara}: What?  Ridiculous you must have plenty of change, you get money all day.
+            {Driver}: I assure you, I can't do change for a fifty.
+            {Chara}: So what? Am I just supposed to walk because I have "too much money"?
+            {Driver}: That.  Or you can get very generous with your tipping.
+            {Chara}: Do you-
+            {Pass}: Perhaps, if I might interrupt, I could help.
+            {Pass}: My work happens to leave me with a great deal of smaller notes you see.  And I'd be more than willing to give you change for your note.
+            {Chara}: Oh, excellent, yes.  Right away.  How very helpful of you.
+            {Chara}: Here you go {Driver}. And yes-
+            {Chara}: I would still like the change.     #goto:Home
         }
     -   2:
         { Morning:
@@ -301,14 +319,44 @@ Alright, let's see...
             Oh heck that's my work! I need to depart immediately!   
             {Chara}: Driver, hold the bus- Please! #goto:Work
         -   else:
-            [An even later return than Wednesday.  It's practically midnight.]
-            [{Chara} makes the same early exit at the fast food restaurant.] #goto:FastFood
+            That was very nearly the last service.
+            I wouldn't want to risk walking all the way home at this hour.
+            Maybe the muggers have the same schedule my colleagues seem to be on.  Perhaps I'd be fine.
+            At least that ridiculous restaurant will still be open.  They still have a few hours till closing.  #goto:FastFood
         }
     -   5:
-        [There is no bus.]
-        [Charlie tries to take his car instead, but finds no one operating the barrier in his car park.]
-        [Charlie walks to work, hoping to find another bus service, or taxi to hail, on his way.]
-        [He finds neither and walks the whole 70 minutes to the office as it begins to rain.]       #goto:Ending
+        Late.
+        Late!
+        Late! Late! LATE!
+        How, on the one day I sleep in could it happen that the bus. 
+        Is also.    #add
+        LATE!!!     #add
+        Actually, this makes perfect sense.
+        It's fine.  I have a car.  I can drive there.
+        It's perfectly possible, why shouldn't I travel under my own steam?     #timeSkip
+        Had to go back inside to get my keys but I'm here now, behind the wheel so let's get this moving.
+        Any second now and the operator will life the barrier to allow me to exit the car park.
+        Any second...
+        Any...      
+        Second...       #slow
+        I can't even see them in the booth, they must have fallen asleep and slumped out of view.
+        Worthless.
+        I'll knock on the glass.  A good fright will set them straight.
+        {Chara}: Hello!
+        {Chara}: I'm trying to leave out here!  #add
+        I don't believe it.
+        I am late.  
+        There was no bus.           #add  
+        The barrier is in my way.   #add
+        And there is nobody in this ridiculous booth to let me drive my car!
+        How am I supposed to deal with this myself?
+        I don't have the key.  I'm not the operator.    #add
+        I can't pick the lock.  I'm not a locksmith.    #add
+        And I can't bend the barrier out of my way, because I'm not Clark bloody Kent - so I guess I'll have to walk myself to work!
+        And if anyone has a problem with my car sitting in the exit, they can learn to deal with problems themselves.
+        Just.
+        Like.
+        I do.       #goto:Ending
 }
 -> END
 
@@ -410,10 +458,25 @@ Alright, let's see...
         }
     -   4:
         { Morning:
-            [Morning meeting must've been staffed with roughly one third the ususal staff.]
-            [{Chara} already knows this is not good news for making up lost work today, but resolves to make the best of it.]       #goto:CoffeeShop
+            That was the shortest morning meeting ever.  Only about a third of the office seemed to bother showing up.
+            If people were unhelpful yesterday, today is going to be appalling. 
+            But in the heros darkest hour,              #poetry
+            He strives and strives with all his power.  #poetry #add
+            The world will see what he can do,          #poetry #add
+            When stood alone. Soon see, will you.       #poetry #add #goto:CoffeeShop
         -   else:
-            [After a very low productivity day due to the office skeleton crew {Chara} departs exhausted.]       #goto:Bus
+            Find document.
+            Cross-reference.    #add
+            Amend database.     #add
+            Pick at sandwich.   #add
+            Find document.
+            Cross-reference-    #add #timeSkip
+            This is ridiculous.  The deadline is far too close for this.
+            No.  
+            No quitting.    #add
+            Keep going till you get the job done.   #timeSkip
+            Yesterday, I was eating dinner by now... 
+            Time to go.       #goto:Bus
         }   
 }
 -> END
@@ -505,10 +568,13 @@ Alright, let's see...
         But I'd gotten used to my lunches having a little more...
         Warmth...           #add #goto:Work
     -   4:
-        [Charlie returns to the Gardenflower, not knowing how else to spend his lunch.]
-        [Hoping perhaps that if {Bar} isn't there, perhaps there'll be something to tell him where he is.] 
-        [He finds neither {Bar} nor any clues.]
-        [He does not enjoy his electronically vended meal.  If he wanted calories, he could've stayed at the office.]   #goto:Work
+        I don't really know why I came here today.
+        {Colleague} is right.  There's a coffee shop on the ground floor and it saves the walk.
+        After all, there are only vending machines now.  Tombstones burying all that was good here.
+        I hoped, naively perhaps, that I could find... something better... than what I found.
+        A hint, or trace, of where everything went.  Hoped chance would grace me with the company I had had before.
+        But instead my company is this processed bread embalmed in plastic.
+        Perhaps I'll be able to pick at this as I work, it only disgusts me right now.      #goto:Work
 }
 -> END
 
@@ -540,8 +606,18 @@ Alright, let's see...
         It was never this hard to get what I wanted at Gardenflower.
         How can she have a job while {Bar} lost his.  How much can this place really benefit anyone.    #goto:Home
     -   4:
-        [Charlie arrives after an exhausting day just needing anything for dinner that night.]
-        [The fast food restaurant is closed.  A note inside the door citing a lack of staff.]
+        There it is... again.  
+        It seems they like to keep the lights down late at night.  I'm glad, the place will be far less garish that way.
+        Now, don't look stupid on top of everything going on.  The inner door was a push, but this one is-
+        Not...
+        Opening?    #add
+        Ridiculous.  This place is open half way to dawn and I'm supposed to believe they locked up already?
+        Perhaps your supposed to signal someone inside to protect them from marauding youths or something.
+        I'd be able to get a better look if this accursed paper wasn't blocking the window- What is this for anyway?!
+        "Lunar Burger will be closed due to a shortage of staff.  We apologise for the inconvenience."
+        But that's-
+        I have needs!   #add
+        I've been working all day, my cupboards are destitute.
         {Chara}: Please. You can't not be here!
         {Chara}: I need you!
         {Chara}: What am I supposed to eat!     #goto:Home
@@ -558,14 +634,19 @@ The building it's...
 LOCKED.         #add
 Oh no no no no no.
 No no no no no no no no no no no.   #add
-I need to get in to finish my work!
-There's got to be someone inside?
+There's got to be someone inside.
 The doorman?
 A worker?!
 Anyone!
 Just-
 Someone.    #add
+I need to get in to finish my work!
+I've put in so much effort!
+I've tried so hard!         #add
+I've done as much as I can! #add
+I just need a little help.
 Please.
+I can't-
 I can't succeed on my own.  #slow #nextDay
 -> END
 
