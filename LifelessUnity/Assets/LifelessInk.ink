@@ -418,9 +418,9 @@ Alright, let's see...
             All I have to do is find {Colleague}, finally get that account from them, and then- 
             Perhaps, first I'll set this coffee at my desk, and then I'll go find them.     #add
             Yes, that plan has far fewer headaches in it.       #timeSkip
-            They're still not here.  Nobody has seen them today!  How can he do this to-      #add
-            It's fine.  We have a centralised database.  It'll take some time but I can work out all the details from there.
-                   #goto:Bus
+            They're still not here.  Nobody has seen them today!  
+            How can he do this to-      #add
+            It's fine.  We have a centralised database.  It'll take some time but I can work out all the details from there.    #goto:Bus
         }
     -   3:
         { Morning:
