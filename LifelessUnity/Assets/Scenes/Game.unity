@@ -1828,13 +1828,13 @@ MonoBehaviour:
   - Location: 0
     Sprite: {fileID: 21300000, guid: 006b2f604a2311243a82cfd31b213d02, type: 3}
   - Location: 1
-    Sprite: {fileID: 21300000, guid: a38d382d4ff58574f8546c9ead5dcf73, type: 3}
+    Sprite: {fileID: 21300000, guid: d4a5fb946c4d036458187bac2c42d962, type: 3}
   - Location: 2
-    Sprite: {fileID: 21300000, guid: 8445053f355698148826001ac5569f99, type: 3}
+    Sprite: {fileID: 21300000, guid: f867c2cdfd346be499144328a0ac804a, type: 3}
   - Location: 3
-    Sprite: {fileID: 21300000, guid: 911cf3f5ad022684db245bcc3fab1894, type: 3}
+    Sprite: {fileID: 21300000, guid: 3b631c39c7078814b9126ea1513285fe, type: 3}
   - Location: 4
-    Sprite: {fileID: 21300000, guid: caa9a096a81d87b44903652d1997f71e, type: 3}
+    Sprite: {fileID: 21300000, guid: eb1591cddbd356340b98346de24b0f61, type: 3}
   - Location: 5
     Sprite: {fileID: 21300000, guid: 6a20e15071c9ebd46869a1951e5a1c84, type: 3}
   InteractionObjects:

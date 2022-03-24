@@ -6,7 +6,7 @@ using Ink;
 
 public class InkReader : MonoBehaviour
 {
-    public readonly List<string> CharacterNames = new List<string> { "Charlie", "Barista", "Driver", "Colleague", "Worker" };
+    public readonly List<string> CharacterNames = new List<string> { "Charlie", "Barista", "Driver", "Colleague", "Worker", "Passenger" };
 
     public static InkReader Instance { get; private set; }
     private void Awake()
